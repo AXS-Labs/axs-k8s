@@ -3,7 +3,7 @@ alertmanager:
 
 server:
   baseURL: https://prometheus.axs-labs.com
-  replicaCount: 2
+  replicaCount: 1
 
   ingress:
     enabled: true
@@ -22,3 +22,17 @@ server:
     - hosts:
       - prometheus.axs-labs.com
       secretName: letsencrypt-prometheus
+
+extraScrapeConfigs: |
+  - job_name: prometheus-lanzendorf-node-exporter
+    static_configs:
+    -
+      labels:
+        project: lanzendorf
+      targets:
+        - lanzendorf-server-metrics.axs-labs.dev
+
+    basic_auth:
+      username: prometheus
+      password: XXXXXXXXXX
+    scheme: https
