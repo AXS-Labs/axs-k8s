@@ -1,5 +1,5 @@
-To install prometheus to the cluster
-
+Install prometheus to the cluster
+--------------------
 1. Create Basic Auth secret for the ingress
 ```
 htpasswd -c auth prometheus
@@ -12,7 +12,8 @@ helm install stable/prometheus -f ./config.yaml --name prometheus --namespace mo
 ```
 
 
-=== Install Node Exporter on self hosted server
+Install Node Exporter on self hosted server
+---------------------------
 
 1. Follow installation instructions from https://prometheus.io/docs/guides/node-exporter/
 2. Create NGINX reverse proxy which expose the metrics endpoint
