@@ -30,14 +30,8 @@ server {
         auth_basic "Server Metrics";
         auth_basic_user_file /etc/nginx/XXXX.htpasswd;
     }
-
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/lanzendorf.axs-labs.com-0001/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/lanzendorf.axs-labs.com-0001/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
 }
 ```
 3. Secure the endpoint with basic auth: https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/
 4. Create a service for the node exporter binary: https://devopscube.com/monitor-linux-servers-prometheus-node-exporter/
+5. Maybe add an SSL Certificate with letsencrypt
