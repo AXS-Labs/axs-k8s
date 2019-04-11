@@ -1,4 +1,7 @@
-replicas: 2
+replicas: 1
+
+plugins:
+  - grafana-piechart-panel
 
 persistence:
   enabled: true
