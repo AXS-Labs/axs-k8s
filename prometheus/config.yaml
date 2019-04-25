@@ -5,6 +5,10 @@ server:
   baseURL: https://prometheus.axs-labs.com
   replicaCount: 1
 
+  persistentVolume:
+    subPath: "./prometheus-server"
+    size: 20Gi
+
   ingress:
     enabled: true
     annotations:
@@ -24,13 +28,14 @@ server:
       secretName: letsencrypt-prometheus
 
 extraScrapeConfigs: |
-  - job_name: prometheus-lanzendorf-node-exporter
+  - job_name: prometheus-node-exporter
     static_configs:
     -
       labels:
         project: lanzendorf
       targets:
         - lanzendorf-server-metrics.axs-labs.dev
+        - metrics.nammert.com
 
     basic_auth:
       username: prometheus
