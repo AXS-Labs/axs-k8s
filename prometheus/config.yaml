@@ -32,10 +32,11 @@ extraScrapeConfigs: |
     static_configs:
     -
       labels:
-        project: lanzendorf
+        project: bare-metal
       targets:
         - lanzendorf-server-metrics.axs-labs.dev
         - metrics.nammert.com
+        - tips-server-metrics.axs-labs.com
 
     basic_auth:
       username: prometheus
